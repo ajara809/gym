@@ -1,0 +1,55 @@
+/* Landing Page Container */
+.landing-container {
+    position: relative;
+    height: 100vh;
+    background: url('C:\React\project\src\components\images\360_F_961735659_mHVxUAWurhG75DDJli60g1d7bUWcXRit.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Overlay for Dimmed Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content Styling */
+#lanh1 {
+    color: #ff6347;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#lanp {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.cta-button {
+    background-color: #ff6347;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff4500;
+}

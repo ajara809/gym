@@ -1,0 +1,156 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* White background */
+    color: #333; 
+}
+
+.weight-loss-details {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ff6347;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #333; /* Dark gray for subheadings */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Slightly lighter gray for paragraphs */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Main Image */
+.main-image {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for images */
+    margin-left: 300px;
+}
+
+/* Section Images */
+.section-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Exercise Images */
+.exercise-images {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.exercise-image {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    margin-left: 20px;
+}
+
+.exercise-image:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Trainer Section */
+.trainer-images {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.trainer {
+    text-align: center;
+}
+
+.trainer-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.trainer-image:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.trainer p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #007bff; /* Blue for trainer names */
+    font-weight: bold;
+}
+
+/* Schedule Section */
+.schedule-section {
+    margin-top: 30px;
+}
+
+.schedule-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.schedule-section li {
+    background-color: #f8f9fa; /* Light gray background for schedule items */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Go Back Button */
+.button {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 24px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}

@@ -1,0 +1,72 @@
+#d1{
+  background-color: black;
+  color: white;
+  width: 300px;
+  height: 480px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 475px;
+  margin-top: 50px;
+  opacity:0.8;
+}
+.d1{
+  background-color: black;
+  color: white;
+  width: 300px;
+  height: 560px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 475px;
+  margin-top: 30px;
+  opacity:0.8;
+}
+#h1{
+  padding-top: 20px;
+}
+#u{
+  padding-top: 10px;
+}
+#inp1,#inp2,#inp3{
+  height: 40px;
+  width: 250px;
+  outline: none;
+  background-color: white;
+  border-color: black;
+  border-radius: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  color: black;
+}
+#but1{
+  margin-top: 25px;
+  height: 35px;
+  width: 70px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  align-items: center;
+}
+ body{
+  justify-content: center;
+  background-image: url("C:\React\project\src\components\images\white.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+p{
+  cursor: pointer;
+}
+p:hover{
+  font-weight: bold ;
+}
+#sih1,#sih3{
+  color: #ff6347;
+}
+#sip{
+  color: white;
+
+}
