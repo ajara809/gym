@@ -28,7 +28,7 @@ nav {
 }
 .hero-section {
     position: relative;
-    background: url('C:\React\project\src\ambitious-studio-rick-barrett-w7jYaN7GqyA-unsplash.jpg') no-repeat center center/cover;
+    background: url('../ambitious-studio-rick-barrett-w7jYaN7GqyA-unsplash.jpg') no-repeat center center/cover;
     height: 400px;
     display: flex;
     align-items: center;

@@ -53,7 +53,7 @@
 }
  body{
   justify-content: center;
-  background-image: url("C:\React\project\src\components\images\white.jpg");
+  background-image: url('../components/images/white.jpg');
   background-repeat: no-repeat;
   background-size:cover;
 }

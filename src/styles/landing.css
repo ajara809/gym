@@ -2,7 +2,7 @@
 .landing-container {
     position: relative;
     height: 100vh;
-    background: url('C:\React\project\src\components\images\360_F_961735659_mHVxUAWurhG75DDJli60g1d7bUWcXRit.jpg') no-repeat center center/cover;
+    background: url('https://t3.ftcdn.net/jpg/09/61/73/56/360_F_961735659_mHVxUAWurhG75DDJli60g1d7bUWcXRit.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
