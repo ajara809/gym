@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../styles/home.css';
+import { useNavigate } from "react-router-dom";
 import personal from './images/personal.jpg';
 import group from './images/group.jpg';
 import equip from './images/equip.jpeg';
@@ -10,6 +11,7 @@ import { auth } from "../firebase/firebase.js";
 
   
 function Home() {
+    const navigate = useNavigate();
     const [plans, setPlans] = useState([]);
     const [trainers, setTrainers] = useState([]); // State to hold trainer data
     const [loading, setLoading] = useState(true); // Loading state
@@ -200,6 +202,7 @@ function Home() {
                 <div className="copyright">
                     <p>&copy; 2025 Xtream Gym. All Rights Reserved.</p>
                 </div>
+                <button type="submit" style={{marginTop:'20px'}} onClick={() => navigate("/")}>Log Out</button> 
             </footer>
         </>
     );
