@@ -10,11 +10,7 @@ import bcaa from './images/bcaa.avif'
 import caff from './images/caff.jpg'
 import mv from './images/mv.jpg'
 import electro from './images/electro.jpg'
-import res from './images/res.jpg'
-import mat from './images/mat.jpg'
-import tread from './images/tread.jfif'
-import dumbell from './images/dumbell.jpg'
-import kettle from './images/kettle.jpg'
+
 
 function product(){
     const navigate = useNavigate();
@@ -23,11 +19,11 @@ function product(){
           <nav>
              <div class="logo">Xtream Gym</div>
              <div class="nav-links">
-             <Link to="/home"><a href="#classes">Home</a></Link>
-            <Link to="/class"><a href="#classes">Classes</a></Link>
-            <Link to="/product"><a href="#products">Products</a></Link>
-            <Link to="/blog"><a href="#products">Blogs</a></Link>
-            <a href="#join">Join Us</a>
+               <Link to="/home">Home</Link>
+               <Link to="/class">Classes</Link>
+               <Link to="/product">Products</Link>
+               <Link to="/blog">Blogs</Link>
+               <Link to="/join">Join Us</Link>
              </div>
          </nav>
 
@@ -88,22 +84,6 @@ function product(){
                 </div>
             </section>
 
-            {/* <section className="workout-products-section">
-                <h2>Common Workout Products</h2>
-                <div className="product-cards">
-                    <div className="product-card">
-                        <img src={mat} alt="Supplements" />
-                        <h3>Yoga Mat</h3>
-                        <p>Comfortable and durable yoga mats for your practice.</p>
-                        <button>Pre-book Now</button>
-                    </div>
-                    <div className="product-card">
-                        <img src={res} alt="Supplements" />
-                        <p>Strengthen your muscles with versatile resistance bands.</p>
-                        <button>Pre-book Now</button>
-                    </div>
-                </div>
-            </section> */}
             <footer class="footer-section">
     <div class="contact-info">
         <h3>Contact Us</h3>
@@ -116,13 +96,6 @@ function product(){
         </div>
     </div>
 
-    <div class="feedback-section">
-        <h3>Feedback</h3>
-        <form action="#" method="POST">
-            <textarea name="feedback" placeholder="Your feedback" rows="4" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
 
     <div class="copyright">
         <p>&copy; 2025 Xtream Gym. All Rights Reserved.</p>

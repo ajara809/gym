@@ -27,11 +27,11 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
 
   const getPackageAmount = () => {
     switch (packageType) {
-      case "Basic":
+      case "Basic - Yoga & Cardio":
         return 1000 * 100;
-      case "Standard":
+      case "Standard - Weight Loss":
         return 2000 * 100;
-      case "Premium":
+      case "Premium - Body Building & HyperTrophy":
         return 3000 * 100;
       case "ex":
         return 5 * 100;

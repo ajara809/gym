@@ -76,7 +76,7 @@ function Sign() {
           value={passc}
           onChange={(e) => setPassc(e.target.value)} 
         />
-        <p className="p" style={{ color: "red" }}>{error} </p>
+        <p className="p" style={{ color: "red", fontWeight:"bolder" }}>{error} </p>
         <center>
           <button id="but1" type="submit"> 
            Submit

@@ -25,11 +25,11 @@ function Blog() {
        <nav>
              <div class="logo">Xtream Gym</div>
              <div class="nav-links">
-             <Link to="/home"><a href="#classes">Home</a></Link>
-            <Link to="/class"><a href="#classes">Classes</a></Link>
-            <Link to="/product"><a href="#products">Products</a></Link>
-            <Link to="/blog"><a href="#products">Blogs</a></Link>
-            <a href="#join">Join Us</a>
+               <Link to="/home">Home</Link>
+               <Link to="/class">Classes</Link>
+               <Link to="/product">Products</Link>
+               <Link to="/blog">Blogs</Link>
+               <Link to="/join">Join Us</Link>
              </div>
          </nav>
       <section className="about-section">
@@ -75,13 +75,6 @@ function Blog() {
         </div>
     </div>
 
-    <div class="feedback-section">
-        <h3>Feedback</h3>
-        <form action="#" method="POST">
-            <textarea name="feedback" placeholder="Your feedback" rows="4" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
 
     <div class="copyright">
         <p>&copy; 2025 Xtream Gym. All Rights Reserved.</p>

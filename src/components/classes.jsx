@@ -38,7 +38,7 @@ function Classes() {
                 <Link to="/class">Classes</Link>
                 <Link to="/product">Products</Link>
                 <Link to="/blog">Blogs</Link>
-                <a href="#join">Join Us</a>
+                <Link to="/join">Join Us</Link>
              </div>
          </nav>
    
@@ -102,14 +102,6 @@ function Classes() {
                 <a href="#" className="social-icon">Facebook</a>
                 <a href="#" className="social-icon">Twitter</a>
             </div>
-        </div>
-
-        <div className="feedback-section">
-            <h3>Feedback</h3>
-            <form action="#" method="POST">
-                <textarea name="feedback" placeholder="Your feedback" rows="4" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
         </div>
 
         <div className="copyright">

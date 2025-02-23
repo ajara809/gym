@@ -76,9 +76,9 @@ function RegistrationForm() {
         </select>
         <select name="package" value={formData.package} onChange={handleChange} required>
           <option value="">Select Package</option>
-          <option value="Basic">Basic - 1000 Rs/M Yoga & Cardio</option>
-          <option value="Standard">Standard - 2000 Rs/M Weight Loss</option>
-          <option value="Premium">Premium - 3000 Rs/M Body Building & HyperTrophy</option>
+          <option value="Basic - Yoga & Cardio">Basic - 1000 Rs/M Yoga & Cardio</option>
+          <option value="Standard - Weight Loss">Standard - 2000 Rs/M Weight Loss</option>
+          <option value="Premium - Body Building & HyperTrophy">Premium - 3000 Rs/M Body Building & HyperTrophy</option>
           <option value="ex">Ex- 5 rs</option>
         </select>
         <select name="training" value={formData.training} onChange={handleChange} required>

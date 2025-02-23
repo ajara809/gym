@@ -5,18 +5,41 @@ import personal from './images/personal.jpg';
 import group from './images/group.jpg';
 import equip from './images/equip.jpeg';
 import { Link } from 'react-router-dom';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase.js"; 
 import { auth } from "../firebase/firebase.js";
-
+import { useAuthState } from "react-firebase-hooks/auth";
   
 function Home() {
     const navigate = useNavigate();
+    const [feedback, setFeedback] = useState("");
+    const [user] = useAuthState(auth);
     const [plans, setPlans] = useState([]);
     const [trainers, setTrainers] = useState([]); // State to hold trainer data
     const [loading, setLoading] = useState(true); // Loading state
     const [programs, setPrograms] = useState([]);
     const [userEmail, setUserEmail] = useState(null);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!user) {
+            alert("You must be logged in to submit feedback");
+            return;
+        }
+        
+        try {
+            await addDoc(collection(db, "feedback"), {
+                feedback,
+                email: user.email,
+                createdAt: serverTimestamp(),
+            });
+            alert("Feedback submitted successfully!");
+            setFeedback("");
+        } catch (error) {
+            console.error("Error submitting feedback: ", error);
+            alert("Failed to submit feedback");
+        }
+    };
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -183,7 +206,7 @@ function Home() {
                 <div className="contact-info">
                     <h3>Contact Us</h3>
                     <p>Phone: +91 7397177540</p>
-                    <p>Email: xtream411@gmail.com</p>
+                    <p>Email: xtreamgym2615@gmail.com</p>
                     <div className="social-icons">
                         <a href="#" className="social-icon">Instagram</a>
                         <a href="#" className="social-icon">Facebook</a>
@@ -193,10 +216,17 @@ function Home() {
 
                 <div className="feedback-section">
                     <h3>Feedback</h3>
-                    <form action="#" method="POST">
-                        <textarea name="feedback" placeholder="Your feedback" rows="4" required></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
+                    <form onSubmit={handleSubmit}>
+                         <textarea 
+                            name="feedback"
+                            placeholder="Your feedback"
+                            rows="4"
+                            required
+                            value={feedback}
+                            onChange={(e) => setFeedback(e.target.value)}
+                         ></textarea>
+                         <button type="submit">Submit</button>
+                     </form>
                 </div>
 
                 <div className="copyright">

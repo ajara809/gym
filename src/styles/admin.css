@@ -1,0 +1,56 @@
+.admin-container {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  .admin-navbar {
+    background-color:#333;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-title {
+    color: white;
+    font-size:larger;
+    font-weight: bold;
+  }
+  
+  .admin-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .admin-link {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .admin-link:hover {
+    opacity: 0.8;
+  }
+  
+  .admin-content {
+    position: relative;
+    background: url('../ambitious-studio-rick-barrett-w7jYaN7GqyA-unsplash.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .admin-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color:white;
+  }
+  

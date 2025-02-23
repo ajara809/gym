@@ -21,6 +21,8 @@ import Bcaa from './components/bcaa.jsx'
 import Caffine from './components/caffine.jsx'
 import Mv from './components/multi.jsx'
 import Electro from './components/electro.jsx'
+import Bb from './components/adminblogs.jsx'
+import Trainer from './components/trainers.jsx'
 
 function App() {
           
@@ -48,6 +50,8 @@ function App() {
             <Route path="/caffine" element={<Caffine />} />
             <Route path="/mv" element={<Mv />} />
             <Route path="/el" element={<Electro />} />
+            <Route path="/Bl" element={<Bb />} />
+            <Route path="/trainer" element={<Trainer />} />
           </Routes>
         </Router>
       );

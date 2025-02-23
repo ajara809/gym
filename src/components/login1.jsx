@@ -38,8 +38,7 @@ function Login() {
 
       console.log("Login successful:", user);
 
-      // Redirect based on email or user role
-      if (user.email === "iamadmin@gmail.com") {
+      if (user.email === "xtreamgym2615@gmail.com") {
         navigate("/Admin"); // Redirect to admin module
       } else {
         navigate("/Home"); // Redirect to user module
@@ -80,9 +79,9 @@ function Login() {
           onChange={(e) => setPass(e.target.value)}
           placeholder="Enter your password"
         />
-        <p ref={errorRef} className="p"></p>
+        <p ref={errorRef} className="p" style={{ color: "red", fontWeight:"bolder" }}></p>
         <center>
-          <button id="but1" type="submit">
+          <button id="but2" type="submit">
             Submit
           </button>
         </center>

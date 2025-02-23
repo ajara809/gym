@@ -1,4 +1,3 @@
-/* Landing Page Container */
 .landing-container {
     position: relative;
     height: 100vh;
@@ -11,7 +10,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* Overlay for Dimmed Effect */
 .overlay {
     position: absolute;
     top: 0;
@@ -24,7 +22,6 @@
     justify-content: center;
 }
 
-/* Content Styling */
 #lanh1 {
     color: #ff6347;
     font-size: 3em;
