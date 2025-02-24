@@ -207,6 +207,16 @@ function Home() {
                     <h3>Contact Us</h3>
                     <p>Phone: +91 7397177540</p>
                     <p>Email: xtreamgym2615@gmail.com</p>
+
+                    <h3>Location</h3>
+                    <p>Jayasakthi Nagar, Chettiarpatti, Dhalavaipuram, Tamil Nadu 626122</p>
+                    <a 
+                        href="https://maps.app.goo.gl/KgpdPQj2S8kVrbfr5" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="map-link"
+                     >View On Google Maps</a>
+                     
                     <div className="social-icons">
                         <a href="#" className="social-icon">Instagram</a>
                         <a href="#" className="social-icon">Facebook</a>

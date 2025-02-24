@@ -68,6 +68,16 @@ function Blog() {
         <h3>Contact Us</h3>
         <p>Phone: +91 7397177540</p>
         <p>Email: xtream411@gmail.com</p>
+
+        <h3>Location</h3>
+                    <p>Jayasakthi Nagar, Chettiarpatti, Dhalavaipuram, Tamil Nadu 626122</p>
+                    <a 
+                        href="https://maps.app.goo.gl/KgpdPQj2S8kVrbfr5" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="map-link"
+                     >View On Google Maps</a>
+                     
         <div class="social-icons">
             <a href="#" class="social-icon">Instagram</a>
             <a href="#" class="social-icon">Facebook</a>

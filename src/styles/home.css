@@ -375,3 +375,19 @@ nav {
     color: #aaa;
 }
 
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #ff6347;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.map-link:hover {
+    background-color: #e5533d;
+}
+
