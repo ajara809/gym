@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/firebase.js"; // Adjust the path as needed
 import "../styles/login.css";
@@ -28,7 +28,6 @@ function Login() {
       const userSnap = await getDoc(userRef);
 
       if (!userSnap.exists()) {
-        // Store user details in Firestore after email verification
         await setDoc(userRef, {
           email: user.email,
           createdAt: new Date(),
@@ -57,6 +56,21 @@ function Login() {
     }
   };
 
+  const handleForgotPassword = async () => {
+    if (!mail) {
+      errorRef.current.innerHTML = "Please enter your email to reset the password!";
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, mail);
+      errorRef.current.innerHTML = "Password reset link sent! Check your email.";
+      errorRef.current.style.color = "green";
+    } catch (error) {
+      console.error("Error sending reset email:", error);
+      errorRef.current.innerHTML = "Failed to send reset email. Try again!";
+    }
+  };
+
   return (
     <form onSubmit={handleLogin}>
       <div id="d1">
@@ -79,11 +93,14 @@ function Login() {
           onChange={(e) => setPass(e.target.value)}
           placeholder="Enter your password"
         />
-        <p ref={errorRef} className="p" style={{ color: "red", fontWeight:"bolder" }}></p>
+        <p ref={errorRef} className="p" style={{ color: "red", fontWeight: "bolder" }}></p>
         <center>
           <button id="but2" type="submit">
             Submit
           </button>
+          <p id="forgot-pass" onClick={handleForgotPassword} style={{ cursor: "pointer", color: "blue", textDecoration: "underline" }}>
+            Forgot Password?
+          </p>
         </center>
         <p onClick={() => navigate("/sign")} id="sip">
           Don't have an account? Sign up
