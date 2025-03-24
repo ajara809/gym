@@ -6,12 +6,16 @@ import { collection, getDocs, updateDoc, deleteDoc, doc } from "firebase/firesto
 import { getAuth, deleteUser } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PieChart, Pie, Tooltip, Cell,} from "recharts";
+
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [payments, setPayments] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A569BD", "#E74C3C", "#17A589", "#F1C40F"];
+
   
   useEffect(() => {
     const fetchUsers = async () => {
@@ -125,6 +129,20 @@ const AdminDashboard = () => {
     setFeedbacks(feedbacks.filter((feedback) => feedback.id !== id));
   };
 
+  const packageDistribution = () => {
+    const packageCount = payments.reduce((acc, payment) => {
+      acc[payment.packageType] = (acc[payment.packageType] || 0) + 1;
+      return acc;
+    }, {});
+
+    return Object.keys(packageCount).map((key, index) => ({
+      name: key,
+      value: packageCount[key],
+    }));
+  };
+
+
+
   return (
     <div className="admin-container">
       <nav className="admin-navbar">
@@ -228,6 +246,27 @@ const AdminDashboard = () => {
 
       <div className="admin-report-section">
         <button onClick={generateReport} className="admin-report-button">Generate Report</button>
+      </div>
+
+      <div className="admin-chart-container">
+        <h2 className="admin-chart-title">Membership Package Distribution</h2>
+        <PieChart width={400} height={400}>
+          <Pie
+            data={packageDistribution()}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+            outerRadius={150}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {packageDistribution().map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
       </div>
     </div>
   );
