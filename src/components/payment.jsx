@@ -60,7 +60,7 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
     renewalDate.setMonth(renewalDate.getMonth() + 1); // Add 1 month for renewal
 
     const options = {
-      key: "rzp_live_OQkmrxZ01dqYGr",
+      key: "rzp_live_PRUoYWVTOH10qW",
       amount: getPackageAmount(),
       currency: "INR",
       name: "Xtream Gym",
