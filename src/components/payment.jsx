@@ -44,21 +44,31 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
 
   const handlePayment = async () => {
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-
+  
     if (!res) {
       alert("Razorpay SDK failed to load.");
       return;
     }
-
+  
     if (!loggedInEmail) {
       alert("You must be logged in to proceed with payment.");
       return;
     }
-
+  
     const paymentDate = new Date();
-    const renewalDate = new Date(paymentDate);
-    renewalDate.setMonth(renewalDate.getMonth() + 1); // Add 1 month for renewal
-
+    let renewalDate = new Date(paymentDate);
+    
+    // Get the current day of the month
+    const day = renewalDate.getDate();
+    
+    // Add 1 month
+    renewalDate.setMonth(renewalDate.getMonth() + 1);
+    
+    // If the new month doesn't have the same day, set to the last day of the month
+    if (renewalDate.getDate() !== day) {
+      renewalDate.setDate(0); // Sets to last day of previous month
+    }
+  
     const options = {
       key: "rzp_live_PRUoYWVTOH10qW",
       amount: getPackageAmount(),
@@ -68,10 +78,9 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
       handler: async function (response) {
         console.log("Payment Successful! Response:", response);
         alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-
-        // Store payment details in Firestore
+  
         try {
-          const docRef = await addDoc(collection(db, "payments"), {
+          await addDoc(collection(db, "payments"), {
             email: loggedInEmail,
             name: userName,
             phone: userPhone,
@@ -82,10 +91,10 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
             renewalDate: renewalDate.toISOString(),
             timestamp: new Date(),
           });
-
+  
           console.log("Payment details saved successfully in Firestore!");
           alert("Payment details saved successfully!");
-
+  
           // Store payment details in state for PDF generation
           setPaymentDetails({
             name: userName,
@@ -108,43 +117,60 @@ const Payment = ({ packageType, userEmail, userName, userPhone }) => {
         color: "#3399cc",
       },
     };
-
+  
     if (getPackageAmount() === 0) {
       alert("Please select a valid package.");
       return;
     }
-
+  
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+  
 
-  const generatePDF = () => {
-    if (!paymentDetails) return;
+const generatePDF = async () => {
+  if (!userEmail) return;
 
+  try {
+    // Fetch the latest payment details from Firestore
+    const paymentRef = doc(db, "payments", userEmail);
+    const paymentSnap = await getDoc(paymentRef);
+
+    if (!paymentSnap.exists()) {
+      alert("No payment details found.");
+      return;
+    }
+
+    const paymentData = paymentSnap.data();
+
+    // Generate PDF with updated Firestore data
     const doc = new jsPDF();
     doc.setFontSize(18);
     doc.text("Xtream Gym - Payment Invoice", 20, 20);
 
     doc.setFontSize(12);
-    doc.text(`Invoice Date: ${paymentDetails.paymentDate}`, 20, 30);
+    doc.text(`Invoice Date: ${new Date(paymentData.timestamp.toDate()).toLocaleDateString()}`, 20, 30);
 
     doc.autoTable({
       startY: 40,
       head: [["Field", "Details"]],
       body: [
-        ["Name", paymentDetails.name],
-        ["Email", paymentDetails.email],
-        ["Phone", paymentDetails.phone],
-        ["Package", paymentDetails.package],
-        ["Amount Paid", paymentDetails.amount],
-        ["Payment ID", paymentDetails.paymentId],
-        ["Payment Date", paymentDetails.paymentDate],
-        ["Fees Renewal Date", paymentDetails.renewalDate],
+        ["Name", paymentData.name],
+        ["Email", paymentData.email],
+        ["Phone", paymentData.phone],
+        ["Package", paymentData.packageType],
+        ["Amount Paid", `₹${paymentData.amount}`],
+        ["Payment ID", paymentData.paymentId],
+        ["Payment Date", new Date(paymentData.paymentDate).toLocaleDateString()],
+        ["Fees Renewal Date", new Date(paymentData.renewalDate).toLocaleDateString()], // Updated Renewal Date
       ],
     });
 
-    doc.save(`Invoice_${paymentDetails.paymentId}.pdf`);
-  };
+    doc.save(`Invoice_${paymentData.paymentId}.pdf`);
+  } catch (error) {
+    console.error("Error fetching updated payment details:", error);
+  }
+};
 
   return (
     <div>

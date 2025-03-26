@@ -151,6 +151,7 @@ const AdminDashboard = () => {
           <a className="admin-link">User</a>
           <a className="admin-link" onClick={() => navigate("/trainer")}>Trainer</a>
           <a className="admin-link" onClick={() => navigate("/bl")}>Blogs</a>
+          <a className="admin-link" onClick={() => navigate("/adatt")}>Attendance</a>
         </div>
       </nav>
       <div className="admin-content">

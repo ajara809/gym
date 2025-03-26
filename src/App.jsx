@@ -23,6 +23,8 @@ import Mv from './components/multi.jsx'
 import Electro from './components/electro.jsx'
 import Bb from './components/adminblogs.jsx'
 import Trainer from './components/trainers.jsx'
+import Adatt from './components/adminatt.jsx'
+import Attendance from './components/attendance.jsx'
 
 function App() {
           
@@ -52,6 +54,8 @@ function App() {
             <Route path="/el" element={<Electro />} />
             <Route path="/Bl" element={<Bb />} />
             <Route path="/trainer" element={<Trainer />} />
+            <Route path="/adatt" element={<Adatt />} />
+            <Route path="/att" element={<Attendance />} />
           </Routes>
         </Router>
       );

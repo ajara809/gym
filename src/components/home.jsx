@@ -114,6 +114,7 @@ function Home() {
                     <Link to="/product">Products</Link>
                     <Link to="/blog">Blogs</Link>
                     <Link to="/join">Join Us</Link>
+                    <Link to="/att">Attendance</Link>
                 </div>
                 {userEmail && <div className="user-email">{userEmail}</div>} {/* Display user email */}
             </nav>
